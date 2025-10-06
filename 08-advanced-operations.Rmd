@@ -250,7 +250,7 @@ How many countries are now above vs below replacement rate? We can do this by gr
 
 ```{r fertility-at-replacement}
 # group by a new column called at_replacement indicating rate>=2.1
-fertility %>%
+fertility %>% filter(year == 2023) %>%
   group_by(at_replacement = rate >= 2.1) %>%
   summarize(n = n()) %>%
   mutate(pct = 100 * n / sum(n))
